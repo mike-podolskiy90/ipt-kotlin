@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
+<#import "macros/s.ftl" as s>
 <#include "inc/header.ftl">
-<#--<title><@s.text name="menu.about"/></title>-->
-<title>About</title>
+<title><@s.text name="menu.about"/></title>
 <#assign currentMenu = "about"/>
 
 <#include "inc/menu.ftl">
@@ -10,8 +10,7 @@
     <div class="container my-3 p-3">
         <div class="text-center">
             <div class="text-uppercase fw-bold fs-smaller-2">
-<#--                <span><@s.text name="menu.about"/></span>-->
-                About
+                <span><@s.text name="menu.about"/></span>
             </div>
 
             <h1 class="pb-2 mb-0 pt-2 text-gbif-header fs-2 fw-normal">
