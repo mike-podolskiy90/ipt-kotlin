@@ -1,8 +1,8 @@
 <#ftl output_format="HTML">
-<#import "../macros/messages.ftl" as s>
-<#include "../inc/header.ftl">
+<#import "/macros/messages.ftl" as s>
 <title><@s.text name="title"/></title>
-<#include "../inc/menu.ftl">
+<#include "/inc/header.ftl">
+<#include "/inc/menu.ftl">
 <#--<script src="../../static/js/jquery/jquery.dataTables-1.10.23.min.js"></script>-->
 <#--<script src="../../static/js/jquery/dataTables.bootstrap5-1.10.23.min.js"></script>-->
 <#--<@resourcesTable shownPublicly=true numResourcesShown=20 sEmptyTable="dataTables.sEmptyTable.resources" columnToSortOn=1 sortOrder="asc" />-->

@@ -30,9 +30,9 @@
 [#--                        </li>--]
 [#--                    [/#if]--]
 [#--                    [#if adminRights]--]
-[#--                        <li class="nav-item nav-item-border-bottom">--]
-[#--                            <a class="nav-link [#if currentMenu=='admin']active[/#if]" href="${baseURL}/admin/">[@s.text name="menu.admin"/]</a>--]
-[#--                        </li>--]
+                        <li class="nav-item nav-item-border-bottom">
+                            <a class="nav-link [#if currentMenu=='admin']active[/#if]" href="/admin">[@s.text name="menu.admin"/]</a>
+                        </li>
 [#--                    [/#if]--]
                     <li class="nav-item nav-item-border-bottom">
 [#--                        <a class="nav-link [#if currentMenu=='about']active[/#if]" href="/about">[@s.text name="menu.about"/]</a>--]
