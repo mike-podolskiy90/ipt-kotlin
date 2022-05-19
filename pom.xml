@@ -8,15 +8,22 @@
     <version>2.6.7</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
+
   <groupId>org.gbif.ipt</groupId>
   <artifactId>ipt-kotlin</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>ipt-kotlin</name>
   <description>ipt-kotlin</description>
+
   <properties>
     <java.version>1.8</java.version>
     <kotlin.version>1.6.21</kotlin.version>
+    <xstream.version>1.4.19</xstream.version>
+    <commons-lang3.version>3.12.0</commons-lang3.version>
+    <commons-io.version>2.8.0</commons-io.version>
+    <validation-api.version>2.0.1.Final</validation-api.version>
   </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -37,6 +44,28 @@
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk8</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>${xstream.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>${validation-api.version}</version>
     </dependency>
 
     <dependency>
