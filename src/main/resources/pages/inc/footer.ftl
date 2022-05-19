@@ -4,24 +4,20 @@
         <div class="mb-1">
             <img class="footer-gbif-logo" alt="GBIF" src="/images/GBIF-2015-standard-ipt.png"/>
 <#--            Integrated Publishing Toolkit (IPT) <@s.text name="footer.version"/> ${cfg.version!"???"}-->
-            Integrated Publishing Toolkit (IPT) 4.0-SNAPSHOT-kotlin
+            Integrated Publishing Toolkit (IPT) <@s.text name="footer.version"/> 4.0-SNAPSHOT-kotlin
         </div>
         <ul class="list-inline mb-0">
             <li class="list-inline-item ipt-footer-item">
-<#--                <a href="https://www.gbif.org/ipt"><small><@s.text name="footer.projectHome"/></small></a>-->
-                <a href="https://www.gbif.org/ipt"><small>About the IPT</small></a>
+                <a href="https://www.gbif.org/ipt"><small><@s.text name="footer.projectHome"/></small></a>
             </li>
             <li class="list-inline-item ipt-footer-item">
-<#--                <a href="https://ipt.gbif.org/manual/" target="_blank"><small><@s.text name="footer.useManual"/></small></a>-->
-                <a href="https://ipt.gbif.org/manual/" target="_blank"><small>User manual</small></a>
+                <a href="https://ipt.gbif.org/manual/" target="_blank"><small><@s.text name="footer.useManual"/></small></a>
             </li>
             <li class="list-inline-item ipt-footer-item">
-<#--                <a href="https://github.com/gbif/ipt/issues/new" target="_blank"><small><@s.text name="footer.bugReport"/></small></a>-->
-                <a href="https://github.com/gbif/ipt/issues/new" target="_blank"><small>Report a bug</small></a>
+                <a href="https://github.com/gbif/ipt/issues/new" target="_blank"><small><@s.text name="footer.bugReport"/></small></a>
             </li>
             <li class="list-inline-item">
-<#--                <a href="https://github.com/gbif/ipt/issues/new" target="_blank"><small><@s.text name="footer.featureRequest"/></small></a>-->
-                <a href="https://github.com/gbif/ipt/issues/new" target="_blank"><small>Request a feature</small></a>
+                <a href="https://github.com/gbif/ipt/issues/new" target="_blank"><small><@s.text name="footer.featureRequest"/></small></a>
             </li>
         </ul>
     </div>
@@ -34,7 +30,7 @@
     </div>
 </div>
 
-<#--<script src="../../static/js/bootstrap/bootstrap.bundle.min.js"></script>-->
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
 <#--<script src="../../static/js/form-validation.js"></script>-->
 <script>
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))

@@ -4,8 +4,7 @@
 <body class="bg-body d-flex flex-column h-100">
 
 <header>
-    <nav class="navbar navbar-expand-xl navbar-dark bg-gbif-main-navbar fixed-top py-1 border-bottom">
-[#--    <nav class="navbar navbar-expand-xl navbar-dark bg-gbif-main-navbar fixed-top py-1 border-bottom [#if !auxTopNavbar]shadow-sm[/#if]">--]
+    <nav class="navbar navbar-expand-xl navbar-dark bg-gbif-main-navbar fixed-top py-1 border-bottom shadow-sm">
         <div class="container">
             <a href="/" rel="home" title="Logo" class="navbar-brand" >
                 <img src="/images/gbif-logo-L.svg" alt="IPT" class="gbif-logo"/>
@@ -21,8 +20,7 @@
                 <!-- Navbar -->
                 <ul class="navbar-nav me-auto mb-md-0">
                     <li class="nav-item nav-item-border-bottom">
-[#--                        <a class="nav-link [#if currentMenu=='home']active[/#if]" href="/">[@s.text name="menu.home"/]</a>--]
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link [#if currentMenu=='home']active[/#if]" href="/">[@s.text name="menu.home"/]</a>
                     </li>
 [#--                    [#if managerRights]--]
 [#--                        <li class="nav-item nav-item-border-bottom">--]
@@ -35,8 +33,7 @@
                         </li>
 [#--                    [/#if]--]
                     <li class="nav-item nav-item-border-bottom">
-[#--                        <a class="nav-link [#if currentMenu=='about']active[/#if]" href="/about">[@s.text name="menu.about"/]</a>--]
-                        <a class="nav-link" href="/about">About</a>
+                        <a class="nav-link [#if currentMenu=='about']active[/#if]" href="/about">[@s.text name="menu.about"/]</a>
                     </li>
                 </ul>
 
@@ -57,33 +54,35 @@
 
                     <!-- Login, account -->
 [#--                    [#if (Session.curr_user)??]--]
-[#--                        <ul class="navbar-nav show-xl-bigger">--]
-[#--                            <li class="nav-item dropdown d-xl-flex align-content-xl-center">--]
-[#--                                <a class="btn btn-sm menu-link m-xl-auto navbar-button border" id="accountDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">--]
+                        <ul class="navbar-nav show-xl-bigger">
+                            <li class="nav-item dropdown d-xl-flex align-content-xl-center">
+                                <a class="btn btn-sm menu-link m-xl-auto navbar-button border" id="accountDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 [#--                                    ${Session.curr_user.email}--]
-[#--                                </a>--]
-[#--                                <ul class="dropdown-menu dropdown-menu-light text-light" aria-labelledby="accountDropdownLink">--]
+                                    mpodolskiy
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-light text-light" aria-labelledby="accountDropdownLink">
+                                    <li>
+                                        <a class="dropdown-item menu-link" href="/account">
+                                            [@s.text name="menu.account"/]
+                                        </a>
+                                    </li>
 [#--                                    <li>--]
-[#--                                        <a class="dropdown-item menu-link" href="${baseURL}/account.do">--]
-[#--                                            [@s.text name="menu.account"/]--]
-[#--                                        </a>--]
-[#--                                    </li>--]
-[#--                                    <li>--]
-[#--                                        <a class="dropdown-item menu-link" href="${baseURL}/logout.do">--]
+[#--                                        <a class="dropdown-item menu-link" href="/logout">--]
 [#--                                            [@s.text name="menu.logout"/]--]
 [#--                                        </a>--]
 [#--                                    </li>--]
-[#--                                </ul>--]
-[#--                            </li>--]
-[#--                        </ul>--]
-[#--                        <div class="show-xl-smaller d-flex nav-item-border-top">--]
-[#--                            <a class="nav-link ps-0 show-xl-smaller" href="${baseURL}/logout.do">--]
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="show-xl-smaller d-flex nav-item-border-top">
+[#--                            <a class="nav-link ps-0 show-xl-smaller" href="/logout">--]
 [#--                                [@s.text name="menu.logout"/]--]
 [#--                            </a>--]
-[#--                            <a href="${baseURL}/account.do" class="nav-link show-xl-smaller nav-link-account">--]
+                            <a href="/account" class="nav-link show-xl-smaller nav-link-account">
 [#--                                ${Session.curr_user.email}--]
-[#--                            </a>--]
-[#--                        </div>--]
+                                mpodolskiy
+                            </a>
+                        </div>
 [#--                    [#else]--]
 [#--                        <form action="${baseURL}/login.do" method="post" class="d-xl-flex align-content-xl-center">--]
 [#--                            <button class="btn btn-sm m-xl-auto navbar-button border text-capitalize show-xl-bigger" type="submit" name="login-submit">--]
