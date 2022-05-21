@@ -2,8 +2,8 @@
 
     <#macro input name value="-99999" i18nkey="" errorfield="" type="text" size=-1 disabled=false help="" helpOptions=[] date=false requiredField=false maxlength=-1>
         <#if date>
-            <#include "/WEB-INF/pages/macros/form_field_label.ftl">
-            <#include "/WEB-INF/pages/macros/help_icon.ftl">
+            <#include "form_field_label.ftl">
+            <#include "help_icon.ftl">
             <div class="calendarInfo">
                 <input
                         class="form-control"
@@ -17,13 +17,13 @@
                         <#if disabled>readonly="readonly"</#if>
                         <#if requiredField>required</#if>
                 />
-                <#include "/WEB-INF/pages/macros/form_field_error.ftl">
+                <#include "form_field_error.ftl">
             </div>
         <#else>
             <div>
                 <div class="d-flex">
-                    <#include "/WEB-INF/pages/macros/form_field_label.ftl">
-                    <#include "/WEB-INF/pages/macros/help_icon.ftl">
+                    <#include "form_field_label.ftl">
+                    <#include "help_icon.ftl">
                 </div>
                 <input
                         class="form-control"
@@ -36,7 +36,7 @@
                         <#if disabled>readonly="readonly"</#if>
                         <#if requiredField>required</#if>
                 />
-                <#include "/WEB-INF/pages/macros/form_field_error.ftl">
+                <#include "form_field_error.ftl">
             </div>
         </#if>
     </#macro>
@@ -44,8 +44,8 @@
     <#macro text name value="-99999" i18nkey="" errorfield="" size=40 rows=5 disabled=false help="" requiredField=false minlength=-1 maxlength=-1>
         <div>
             <div class="d-flex">
-                <#include "/WEB-INF/pages/macros/form_field_label.ftl">
-                <#include "/WEB-INF/pages/macros/help_icon.ftl">
+                <#include "/macros/form_field_label.ftl">
+                <#include "/macros/help_icon.ftl">
             </div>
             <textarea id="${name}" class="form-control" name="${name}" cols="${size}" rows="${rows}"<#rt>
                       <#if (minlength>0)> minlength="${minlength}"</#if><#t>
@@ -58,7 +58,7 @@
                           ${value}<#t>
                       </#if><#t>
             </textarea><#lt>
-            <#include "/WEB-INF/pages/macros/form_field_error.ftl">
+            <#include "/macros/form_field_error.ftl">
         </div>
     </#macro>
 
@@ -72,14 +72,14 @@
                       <#if disabled> readonly="readonly"</#if>><#t>
                       <#if value=="-99999"><@s.property value="${name}"/><#else>${value}</#if><#t>
             </textarea><#lt>
-            <#include "/WEB-INF/pages/macros/form_field_error.ftl">
+            <#include "/macros/form_field_error.ftl">
         </div>
     </#macro>
 
     <#macro textinline name value="-99999" i18nkey="" errorfield="" help="" requiredField=false>
         <div class="textinline">
             <h5 class="pb-2 mb-0 pt-2 text-gbif-header fw-400">
-                <#include "/WEB-INF/pages/macros/help_icon.ftl">
+                <#include "/macros/help_icon.ftl">
                 <span><@s.text name="${name}"/><#if requiredField>&#42;</#if></span>
             </h5>
         </div>
@@ -87,7 +87,7 @@
 
     <#macro link name value="" href="" class="" i18nkey="" help="" errorfield="">
         <div>
-            <#include "/WEB-INF/pages/macros/help_icon.ftl">
+            <#include "/macros/help_icon.ftl">
             <a id="${name}" name="${name}" class="${class}" href="${href}"><@s.text name="${value}"/></a>
         </div>
     </#macro>
@@ -95,8 +95,8 @@
     <#macro select name options value="" i18nkey="" errorfield="" size=1 disabled=false help="" includeEmpty=false javaGetter=true requiredField=false>
         <div>
             <div class="d-flex">
-                <#include "/WEB-INF/pages/macros/form_field_label.ftl">
-                <#include "/WEB-INF/pages/macros/help_icon.ftl">
+                <#include "/macros/form_field_label.ftl">
+                <#include "/macros/help_icon.ftl">
             </div>
             <select name="${name}" id="${name}" size="${size}" class="form-select" <#if disabled>readonly="readonly"</#if> <#if requiredField>required</#if>>
                 <#if includeEmpty>
@@ -108,18 +108,18 @@
                     </option>
                 </#list>
             </select>
-            <#include "/WEB-INF/pages/macros/form_field_error.ftl">
+            <#include "/macros/form_field_error.ftl">
         </div>
     </#macro>
 
     <#macro selectList name options objValue objTitle value="" i18nkey="" errorfield="" size=1 disabled=false help="" includeEmpty=false requiredField=false>
         <div>
             <div class="d-flex">
-                <#include "/WEB-INF/pages/macros/form_field_label.ftl">
-                <#include "/WEB-INF/pages/macros/help_icon.ftl">
+                <#include "/macros/form_field_label.ftl">
+                <#include "/macros/help_icon.ftl">
             </div>
             <@s.select id=name class="form-select" name=name list=options listKey=objValue listValue=objTitle value=value size=size disabled=disabled emptyOption=includeEmpty/>
-            <#include "/WEB-INF/pages/macros/form_field_error.ftl">
+            <#include "/macros/form_field_error.ftl">
         </div>
     </#macro>
 
@@ -132,20 +132,20 @@
                 <@s.checkbox cssClass="form-check-input" key="${name}" id="${name}" disabled=disabled value=value />
             </#if>
             <div class="d-flex">
-                <#include "/WEB-INF/pages/macros/form_checkbox_label.ftl">
-                <#include "/WEB-INF/pages/macros/help_icon.ftl">
+                <#include "/macros/form_checkbox_label.ftl">
+                <#include "/macros/help_icon.ftl">
             </div>
-            <#include "/WEB-INF/pages/macros/form_field_error.ftl">
+            <#include "/macros/form_field_error.ftl">
         </div>
     </#macro>
 
     <#macro readonly name i18nkey value size=-1 help="" errorfield="" requiredField=false>
         <div class="d-flex">
-            <#include "/WEB-INF/pages/macros/form_field_label.ftl">
-            <#include "/WEB-INF/pages/macros/help_icon.ftl">
+            <#include "form_field_label.ftl">
+            <#include "help_icon.ftl">
         </div>
         <input type="text" class="form-control" value="${value}" <#if (size>0)>size="${size}"</#if> readonly="readonly"/>
-        <#include "/WEB-INF/pages/macros/form_field_error.ftl">
+        <#include "form_field_error.ftl">
     </#macro>
 
     <#macro label i18nkey help="" requiredField=false>
