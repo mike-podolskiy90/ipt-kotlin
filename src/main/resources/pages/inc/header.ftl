@@ -84,7 +84,7 @@
 [#--    <meta name="inventory" content="${baseURL}/inventory/dataset"/>--]
 [#--    <meta name="foaf:seeAlso" content="${baseURL}/dcat"/>--]
 [#--    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />--]
-[#--    <meta name="viewport" content="width=device-width, initial-scale=1">--]
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     [#assign currentMenu = "home"]
     [#import "/macros/messages.ftl" as s]
