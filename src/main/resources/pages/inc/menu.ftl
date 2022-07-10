@@ -10,7 +10,7 @@
                 <img src="/images/gbif-logo-L.svg" alt="IPT" class="gbif-logo"/>
 [#--                [#if !cfg.devMode() && cfg.getRegistryType()?has_content && cfg.getRegistryType()=='PRODUCTION']--]
 [#--                [#else]--]
-[#--                    <img class="testmode" alt="[@s.text name="menu.testMode"/]" src="/images/testmode.png" style="width: 100px;"/>--]
+                    <img class="testmode" alt="[@s.text name="menu.testMode"/]" src="/images/testmode.png" style="width: 100px;"/>
 [#--                [/#if]--]
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,13 +39,23 @@
 
                 <div class="d-xl-flex align-content-between">
                     <!-- Health -->
-[#--                    <div class="navbar-nav nav-item-border-bottom">--]
-[#--                        <a href="/health.do" class="nav-link position-relative health-link" title="[@s.text name="portal.health.title"/]">--]
-[#--                            <svg class="gbif-heartbeat-icon [#if currentMenu=='health']active[/#if]" height="20" width="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-356 246.5 90 77.6"  xml:space="preserve">--]
-[#--                              <path d="M-277.2,286.2h-22.9l-5,11l-10.1-43.8l-10.9,32.8h-18.6c-1.8,0-3.2,1.4-3.2,3.2c0,1.8,1.4,3.2,3.2,3.2h23.3l5.2-15.5l9.2,40l11.1-24.5h18.7c1.8,0,3.2-1.4,3.2-3.2C-274,287.7-275.4,286.2-277.2,286.2z"/>--]
-[#--                          </svg>--]
+                    <div class="navbar-nav nav-item-border-bottom">
+[#--                        <a href="/health" class="nav-link position-relative health-link d-block" title="[@s.text name="portal.health.title"/]">--]
+                        <span class="nav-link health-link d-inline-block">
+                            <svg class="gbif-heartbeat-icon [#if currentMenu=='health']active[/#if]" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-356 246.5 90 77.6"  xml:space="preserve">
+                              <g id="thefix" onclick="window.top.location.href='/health';">
+                                  <path d="M-277.2,286.2h-22.9l-5,11l-10.1-43.8l-10.9,32.8h-18.6c-1.8,0-3.2,1.4-3.2,3.2c0,1.8,1.4,3.2,3.2,3.2h23.3l5.2-15.5l9.2,40l11.1-24.5h18.7c1.8,0,3.2-1.4,3.2-3.2C-274,287.7-275.4,286.2-277.2,286.2z"/>
+                              </g>
+                            </svg>
+                        </span>
+
+                        [#--                            <svg width=20 height=20>--]
+[#--                                <polygon fill=red stroke-width=0--]
+[#--                                         points="0,10 20,10 10,0" />--]
+[#--                            </svg>--]
 [#--                        </a>--]
-[#--                    </div>--]
+
+                    </div>
 
                     <!-- Languages -->
 [#--                    <div id="navbarNavDropdown">--]
@@ -53,12 +63,11 @@
 [#--                    </div>--]
 
                     <!-- Login, account -->
-[#--                    [#if (Session.curr_user)??]--]
+                    [#if (Session.SPRING_SECURITY_CONTEXT.authentication.name)??]
                         <ul class="navbar-nav show-xl-bigger">
                             <li class="nav-item dropdown d-xl-flex align-content-xl-center">
                                 <a class="btn btn-sm menu-link m-xl-auto navbar-button border" id="accountDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-[#--                                    ${Session.curr_user.email}--]
-                                    mpodolskiy
+                                    ${Session.SPRING_SECURITY_CONTEXT.authentication.name}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-light text-light" aria-labelledby="accountDropdownLink">
                                     <li>
@@ -66,35 +75,34 @@
                                             [@s.text name="menu.account"/]
                                         </a>
                                     </li>
-[#--                                    <li>--]
-[#--                                        <a class="dropdown-item menu-link" href="/logout">--]
-[#--                                            [@s.text name="menu.logout"/]--]
-[#--                                        </a>--]
-[#--                                    </li>--]
+                                    <li>
+                                        <a class="dropdown-item menu-link" href="/logout">
+                                            [@s.text name="menu.logout"/]
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
                         <div class="show-xl-smaller d-flex nav-item-border-top">
-[#--                            <a class="nav-link ps-0 show-xl-smaller" href="/logout">--]
-[#--                                [@s.text name="menu.logout"/]--]
-[#--                            </a>--]
+                            <a class="nav-link ps-0 show-xl-smaller" href="/logout">
+                                [@s.text name="menu.logout"/]
+                            </a>
                             <a href="/account" class="nav-link show-xl-smaller nav-link-account">
-[#--                                ${Session.curr_user.email}--]
-                                mpodolskiy
+                                ${Session.SPRING_SECURITY_CONTEXT.authentication.name}
                             </a>
                         </div>
-[#--                    [#else]--]
-[#--                        <form action="${baseURL}/login.do" method="post" class="d-xl-flex align-content-xl-center">--]
-[#--                            <button class="btn btn-sm m-xl-auto navbar-button border text-capitalize show-xl-bigger" type="submit" name="login-submit">--]
-[#--                                [@s.text name="portal.login"/]--]
-[#--                            </button>--]
-[#--                            <div class="navbar-nav show-xl-smaller nav-item-border-top">--]
-[#--                                <a href="javascript:{}" class="nav-link text-capitalize" onclick="this.closest('form').submit();return false;">--]
-[#--                                    [@s.text name="portal.login"/]--]
-[#--                                </a>--]
-[#--                            </div>--]
-[#--                        </form>--]
-[#--                    [/#if]--]
+                    [#else]
+                        <form action="/login" method="post" class="d-xl-flex align-content-xl-center">
+                            <button class="btn btn-sm m-xl-auto navbar-button border text-capitalize show-xl-bigger" type="submit" name="login-submit">
+                                [@s.text name="portal.login"/]
+                            </button>
+                            <div class="navbar-nav show-xl-smaller nav-item-border-top">
+                                <a href="javascript:{}" class="nav-link text-capitalize" onclick="this.closest('form').submit();return false;">
+                                    [@s.text name="portal.login"/]
+                                </a>
+                            </div>
+                        </form>
+                    [/#if]
                 </div>
             </div>
         </div>
