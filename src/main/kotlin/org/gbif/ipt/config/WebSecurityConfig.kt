@@ -19,14 +19,13 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     http
       .csrf().disable()
       .authorizeRequests()
-      .antMatchers("/", "/login", "/home", "/styles/**", "/images/**", "/js/*").permitAll()
+      .antMatchers("/", "/login", "/home", "/styles/**", "/images/**", "/js/**").permitAll()
       .anyRequest().authenticated()
       .and()
       .formLogin()
       .loginPage("/login")
       .usernameParameter("email")
       .passwordParameter("password")
-
       .and()
       .logout()
   }
