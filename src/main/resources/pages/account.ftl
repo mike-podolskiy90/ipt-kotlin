@@ -86,12 +86,12 @@
         <h4 class="pb-2 mb-2 pt-2 text-gbif-header-2 fs-5 fw-400">
             <@s.text name="account.profile.title"/>
         </h4>
-        <form id="profileData" class="needs-validation" action="account.do" method="post" novalidate>
+        <form id="profileData" class="needs-validation" action="account" method="post" novalidate>
             <input type="hidden" name="id" value="${email!}" required>
 
             <div class="row g-3 mt-0 mb-2">
                 <div class="col-sm-6">
-                    <@input name="user.email" disabled=true />
+                    <@input name="email" i18nkey="user.email" value="${user.email}" disabled=true />
                 </div>
 
                 <#assign val><@s.text name="user.roles.${user.role?lower_case}"/></#assign>
@@ -101,11 +101,11 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <@input name="user.firstname" />
+                    <@input name="firstname" i18nkey="user.firstname" value="${user.firstname}" />
                 </div>
 
                 <div class="col-sm-6">
-                    <@input name="user.lastname" />
+                    <@input name="lastname" i18nkey="user.lastname" value="${user.lastname}" />
                 </div>
             </div>
         </form>
@@ -115,7 +115,7 @@
         <h4 class="pb-2 mb-2 pt-2 text-gbif-header-2 fs-5 fw-400">
             <@s.text name="account.passwordChange.title"/>
         </h4>
-        <form id="changePassword" class="needs-validation" action="change-password.do" method="post" novalidate>
+        <form id="changePassword" class="needs-validation" action="change-password" method="post" novalidate>
             <input type="hidden" name="id" value="${email!}" required>
 
             <div class="row g-3 mt-0 mb-2">
