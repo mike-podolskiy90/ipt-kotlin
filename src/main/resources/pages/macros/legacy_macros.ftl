@@ -9,7 +9,7 @@
 </#macro>
 
 <#macro submit name key form="" cssClass="" cssStyle="" id="${name}">
-    <input type="submit" id="${id}" value="<@text name='${key}'/>" name="${name}" class="${cssClass}" style="${cssStyle}" <#if form??>form="${form}"</#if> />
+    <input type="submit" id="${id}" value="<@text name='${key}'/>" name="${name}" class="${cssClass}" style="${cssStyle}" <#if form?has_content>form="${form}"</#if> />
 </#macro>
 
 <#macro hidden name value required>
