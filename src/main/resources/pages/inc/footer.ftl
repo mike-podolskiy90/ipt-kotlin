@@ -30,8 +30,8 @@
     </div>
 </div>
 
-<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
-<#--<script src="../../static/js/form-validation.js"></script>-->
+<script src="http://localhost:8080/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="http://localhost:8080/js/form-validation.js"></script>
 <script>
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
