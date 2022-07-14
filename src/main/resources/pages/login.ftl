@@ -9,8 +9,8 @@
 <main class="container login-container">
     <div class="my-3 px-4 px-sm-5 pb-3 pb-sm-4 pt-4 pt-sm-36p border rounded shadow-sm">
         <div class="text-smaller">
-<#--            <#include "/inc/action_alerts_messages.ftl">-->
-<#--            <#include "/inc/action_alerts_errors.ftl">-->
+            <#include "/inc/action_alerts_messages.ftl">
+            <#include "/inc/action_alerts_errors.ftl">
         </div>
 
         <div class="row text-center">
@@ -29,14 +29,11 @@
             </div>
         </div>
 
-        <p class="text-center text-smaller mt-5">
-
-        </p>
-
-        <p class="text-center text-smaller mt-5">
-            <@s.text name="login.intro">
-                <@s.param>${adminEmail}</@s.param>
-            </@s.text>
+        <p class="text-center text-smaller mt-5 mb-4">
+            <@s.text name="login.intro"/>
+<#--            <@s.text name="login.intro">-->
+<#--                <@s.param>${adminEmail}</@s.param>-->
+<#--            </@s.text>-->
         </p>
 
         <form class="needs-validation" action="login" method="post" novalidate>
@@ -58,14 +55,13 @@
                 </div>
 
                 <#if email?has_content>
-                    <p class="text-center text-smaller">
+                    <p class="text-center text-smaller pt-3">
                         <@s.text name="login.forgottenpassword"><@s.param>${adminEmail}</@s.param></@s.text>
                     </p>
                 </#if>
 
-                <div class="col-12 pt-3">
-<#--                    <@s.submit cssClass="btn btn-outline-gbif-primary w-100 text-capitalize" name="login" key="portal.login"/>-->
-                    <input type="submit" value="login" id="login" name="login" class="btn btn-outline-gbif-primary w-100 text-capitalize">
+                <div class="col-12">
+                    <@s.submit cssClass="btn btn-outline-gbif-primary w-100 text-capitalize" name="login" key="portal.login"/>
                 </div>
             </div>
         </form>
