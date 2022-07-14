@@ -38,7 +38,7 @@
 
 <div class="container-fluid bg-body border-bottom">
     <div class="container my-3">
-<#--        <#include "/WEB-INF/pages/inc/action_alerts.ftl">-->
+        <#include "/inc/action_alerts.ftl">
     </div>
 
     <div class="container my-3 p-3">
@@ -54,7 +54,7 @@
             <div class="mt-2">
                 <@s.submit form="profileData" cssClass="btn btn-sm btn-outline-gbif-primary top-button mt-1" name="save" key="button.save"/>
                 <@s.submit form="changePassword" cssClass="btn btn-sm btn-outline-gbif-primary top-button mt-1" cssStyle="display: none;" name="change-password" key="button.save"/>
-                <@s.submit form="profileData" cssClass="btn btn-sm btn-outline-secondary top-button mt-1" name="cancel" key="button.cancel"/>
+                <a href="http://localhost:8080/" class="btn btn-sm btn-outline-secondary top-button mt-1"><@s.text name="button.cancel"/></a>
             </div>
         </div>
     </div>
@@ -94,10 +94,10 @@
                     <@input name="email" i18nkey="user.email" value="${user.email}" disabled=true />
                 </div>
 
-                <#assign val><@s.text name="user.roles.${user.role?lower_case}"/></#assign>
+                <#assign userRole><@s.text name="user.roles.${user.role?lower_case}"/></#assign>
 
                 <div class="col-sm-6">
-                    <@readonly name="role" i18nkey="user.role" value=val />
+                    <@readonly name="role" i18nkey="user.role" value=userRole />
                 </div>
 
                 <div class="col-sm-6">
@@ -120,15 +120,15 @@
 
             <div class="row g-3 mt-0 mb-2">
                 <div class="col-sm-6">
-                    <@input name="newPassword" i18nkey="user.password.new" type="password"/>
+                    <@input name="newPassword" i18nkey="user.password.new" type="password" value="${newPassword!''}"/>
                 </div>
 
                 <div class="col-sm-6">
-                    <@input name="password2" i18nkey="user.password2" type="password"/>
+                    <@input name="password2" i18nkey="user.password2" type="password" value="${password2!''}"/>
                 </div>
 
                 <div class="col-sm-6">
-                    <@input name="currentPassword" i18nkey="user.password.current" type="password"/>
+                    <@input name="currentPassword" i18nkey="user.password.current" type="password" value="${currentPassword!''}"/>
                 </div>
             </div>
         </form>
