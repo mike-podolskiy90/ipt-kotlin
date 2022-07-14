@@ -87,4 +87,4 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     [#assign currentMenu = "home"]
-    [#import "/macros/messages.ftl" as s]
+    [#import "/macros/legacy_macros.ftl" as s]

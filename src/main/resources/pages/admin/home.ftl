@@ -1,5 +1,5 @@
 <#include "/inc/header.ftl">
-<#import "/macros/messages.ftl" as s>
+<#import "/macros/legacy_macros.ftl" as s>
 <title><@s.text name="title"/></title>
 <#assign currentMenu = "admin"/>
 <#include "/inc/menu.ftl">

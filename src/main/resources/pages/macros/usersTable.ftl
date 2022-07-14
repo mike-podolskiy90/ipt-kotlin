@@ -5,7 +5,7 @@ usersTable macro: Generates a data table that has searching, pagination, and sor
 - columnToSortOn: The column to sort on by default (index starting at 0)
 - sortOrder: The sort order of the columnToSortOn
 -->
-<#import "/macros/messages.ftl" as s>
+<#import "/macros/legacy_macros.ftl" as s>
 <#macro usersTable numUsersShown sEmptyTable columnToSortOn sortOrder>
     <script charset="utf-8">
 

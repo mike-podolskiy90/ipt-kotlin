@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<#import "/macros/messages.ftl" as s>
+<#import "/macros/legacy_macros.ftl" as s>
 <title><@s.text name="title"/></title>
 <#include "/inc/header.ftl">
 <#include "/inc/menu.ftl">

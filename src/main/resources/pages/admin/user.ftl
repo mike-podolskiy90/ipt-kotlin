@@ -1,6 +1,6 @@
 <#escape x as x?html>
     <#include "/inc/header.ftl">
-    <#import "/macros/messages.ftl" as s>
+    <#import "/macros/legacy_macros.ftl" as s>
     <title><#if "${newUser!}"=="no"><@s.text name="admin.user.title.edit"/><#else><@s.text name="admin.user.title.new"/></#if></title>
     <script src="http://localhost:8080/js/jconfirmation.jquery.js"></script>
     <script>

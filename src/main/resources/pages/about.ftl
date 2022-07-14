@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<#import "/macros/messages.ftl" as s>
+<#import "/macros/legacy_macros.ftl" as s>
 <#include "/inc/header.ftl">
 <title><@s.text name="menu.about"/></title>
 <#assign currentMenu = "about"/>
