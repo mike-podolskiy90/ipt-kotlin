@@ -5,9 +5,11 @@ import org.gbif.ipt.service.UserAccountManager
 import org.gbif.ipt.struts2.SimpleTextProvider
 import org.gbif.ipt.validation.UserValidator
 import java.io.IOException
+import org.apache.commons.lang3.StringUtils
 import org.apache.logging.log4j.LogManager
 import org.springframework.http.MediaType
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 @Controller
 class AccountController(
+  private var passwordEncoder: PasswordEncoder,
   textProvider: SimpleTextProvider,
   private var userAccountManager: UserAccountManager,
   private var validator: UserValidator
@@ -55,6 +58,27 @@ class AccountController(
     }
 
     redirectAttributes.addFlashAttribute("fieldErrors", model.getAttribute("fieldErrors"))
+    return "redirect:/account"
+  }
+
+  @PostMapping("/change-password", consumes = [MediaType.APPLICATION_FORM_URLENCODED_VALUE])
+  fun changePassword(
+    currentPassword: String,
+    newPassword: String,
+    password2: String,
+    model: Model,
+    redirectAttributes: RedirectAttributes
+  ): String? {
+    val authentication = SecurityContextHolder.getContext().authentication
+    val currentUser = userAccountManager[authentication.name]
+    if (currentUser != null) {
+      if (validator.validatePassword(model, currentPassword, currentUser.password!!, newPassword, password2)) {
+        currentUser.password = passwordEncoder.encode(newPassword)
+        redirectAttributes.addActionMessage(getText("admin.user.account.passwordChanged")!!)
+        LOG.debug("The password has been reset")
+        return "redirect:/account"
+      }
+    }
     return "redirect:/account"
   }
 
