@@ -40,12 +40,16 @@ class SimpleTextProvider {
     }
   }
 
-  fun findText(bundle: ResourceBundle, aTextName: String, defaultMessage: String?, args: Array<Any?>?): String {
+  fun findText(bundle: ResourceBundle, aTextName: String, defaultMessage: String?, args: Array<String>?): String {
     try {
       val message = bundle.getString(aTextName)
       val text: String
       text = try {
-        MessageFormat.format(message, args)
+        if (args != null) {
+          MessageFormat.format(message, *args)
+        } else {
+          message
+        }
       } catch (e: IllegalArgumentException) {
         // message and arguments don't match?
         LOG.debug(e)
@@ -69,7 +73,7 @@ class SimpleTextProvider {
    * @param args a list args to be used in a [MessageFormat] message
    * @return the message as found in the resource bundle, or defaultValue if none is found
    */
-  fun getText(key: String, defaultValue: String?, args: Array<Any?>?): String? {
+  fun getText(key: String, defaultValue: String?, args: Array<String>?): String? {
     // Locale, defaulting to English if it cannot be determined
     val locale = LocaleContextHolder.getLocale()
     var text: String? = null
