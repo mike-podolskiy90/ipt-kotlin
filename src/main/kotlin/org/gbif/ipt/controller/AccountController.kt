@@ -5,7 +5,6 @@ import org.gbif.ipt.service.UserAccountManager
 import org.gbif.ipt.struts2.SimpleTextProvider
 import org.gbif.ipt.validation.UserValidator
 import java.io.IOException
-import org.apache.commons.lang3.StringUtils
 import org.apache.logging.log4j.LogManager
 import org.springframework.http.MediaType
 import org.springframework.security.core.context.SecurityContextHolder
@@ -80,11 +79,5 @@ class AccountController(
       }
     }
     return "redirect:/account"
-  }
-
-  @GetMapping("/current-user")
-  fun getCurrentUser(): String {
-    val authentication = SecurityContextHolder.getContext().authentication
-    return authentication.name
   }
 }
