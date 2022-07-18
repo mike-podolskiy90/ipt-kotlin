@@ -1,6 +1,7 @@
 package org.gbif.ipt.controller
 
 import org.gbif.ipt.struts2.SimpleTextProvider
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 abstract class BaseController(private var textProvider: SimpleTextProvider) {
@@ -44,7 +45,26 @@ abstract class BaseController(private var textProvider: SimpleTextProvider) {
     }
   }
 
+  /**
+   * Return the currently logged in (session) user.
+   *
+   * @return the currently logged in (session) user or null if not logged in
+   */
+  open fun getCurrentUser(): String? {
+    var u: String? = null
+    try {
+      u = SecurityContextHolder.getContext().authentication.name
+    } catch (e: Exception) {
+//      LOG.debug("A problem occurred retrieving current user. This can happen if the session is not yet opened")
+    }
+    return u
+  }
+
   open fun getText(key: String): String? {
     return textProvider.getText(key, null, emptyArray())
+  }
+
+  open fun getText(key: String, params: Array<String>): String? {
+    return textProvider.getText(key, null, params)
   }
 }

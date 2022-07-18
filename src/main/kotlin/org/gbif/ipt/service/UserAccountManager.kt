@@ -18,7 +18,7 @@ interface UserAccountManager {
 
   fun list(): List<User?>?
 
-  fun list(role: User.Role?): List<User?>?
+  fun list(role: User.Role?): List<User?>
 
   @Throws(InvalidConfigException::class)
   fun load()
@@ -34,5 +34,7 @@ interface UserAccountManager {
   fun getSetupUser(): User?
 
   fun setSetupUser(setupLogin: User?)
+
+  fun isLastAdmin(email: String?): Boolean
 }
 

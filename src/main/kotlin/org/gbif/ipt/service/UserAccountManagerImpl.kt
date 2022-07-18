@@ -142,7 +142,7 @@ class UserAccountManagerImpl : UserAccountManager {
     return userList
   }
 
-  override fun list(role: User.Role?): List<User?>? {
+  override fun list(role: User.Role?): List<User?> {
     val matchingUsers: MutableList<User> = ArrayList()
     for (u in users.values) {
       if (u.role === role) {
@@ -210,8 +210,17 @@ class UserAccountManagerImpl : UserAccountManager {
 
   @Throws(IOException::class)
   override fun save(user: User?) {
-    addUser(user)
-    save()
+    if (user != null) {
+      val storedUser = get(user.email)
+
+      if (storedUser != null) {
+        storedUser.firstname = user.firstname
+        storedUser.lastname = user.lastname
+        storedUser.role = user.role
+        addUser(storedUser)
+        save()
+      }
+    }
   }
 
   override fun getDefaultAdminEmail(): String? {
@@ -224,6 +233,11 @@ class UserAccountManagerImpl : UserAccountManager {
 
   override fun setSetupUser(setupLogin: User?) {
     TODO("Not yet implemented")
+  }
+
+  override fun isLastAdmin(email: String?): Boolean {
+    val user = get(email)
+    return user?.role === User.Role.Admin && list(User.Role.Admin).size < 2
   }
 
   private fun addUser(user: User?): User? {

@@ -11,7 +11,7 @@
 
     <div class="container-fluid bg-body border-bottom">
         <div class="container my-3">
-<#--            <#include "/inc/action_alerts.ftl">-->
+            <#include "/inc/action_alerts.ftl">
         </div>
 
         <div class="container my-3 p-3">
@@ -24,10 +24,12 @@
                     <@s.text name="admin.home.manageUsers"/>
                 </h1>
 
-                <div class="mt-2">
-                    <button id="create" class="btn btn-sm btn-outline-gbif-primary top-button"><@s.text name="button.create"/></button>
-                    <button id="cancel" class="btn btn-sm btn-outline-secondary top-button"><@s.text name="button.cancel"/></button>
-                </div>
+                <form id="newUser" class="needs-validation" action="/admin/user" method="get">
+                    <div class="mt-2">
+                        <button id="create" class="btn btn-sm btn-outline-gbif-primary top-button"><@s.text name="button.create"/></button>
+                        <a href="http://localhost:8080/admin" class="btn btn-sm btn-outline-secondary top-button"><@s.text name="button.cancel"/></a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
