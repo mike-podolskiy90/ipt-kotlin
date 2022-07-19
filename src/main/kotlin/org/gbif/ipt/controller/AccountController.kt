@@ -45,13 +45,13 @@ class AccountController(
         val currentUser = userAccountManager[authentication.name]
         currentUser?.lastname = user.lastname ?: user.lastname
         currentUser?.firstname = user.firstname ?: user.firstname
-        redirectAttributes.addActionMessage(getText("admin.user.account.updated")!!)
+        redirectAttributes.addActionMessage(getText("admin.user.account.updated"))
         LOG.debug("The user account has been updated")
         userAccountManager.save()
         return "redirect:/account"
       }
     } catch (e: IOException) {
-      redirectAttributes.addActionError(getText("admin.user.account.saveError")!!)
+      redirectAttributes.addActionError(getText("admin.user.account.saveError"))
       LOG.error("The user account change could not be made: " + e.message, e)
       redirectAttributes.addActionError(e.message!!)
     }
@@ -73,7 +73,7 @@ class AccountController(
     if (currentUser != null) {
       if (validator.validatePassword(model, currentPassword, currentUser.password!!, newPassword, password2)) {
         currentUser.password = passwordEncoder.encode(newPassword)
-        redirectAttributes.addActionMessage(getText("admin.user.account.passwordChanged")!!)
+        redirectAttributes.addActionMessage(getText("admin.user.account.passwordChanged"))
         LOG.debug("The password has been reset")
         return "redirect:/account"
       }

@@ -60,11 +60,11 @@ abstract class BaseController(private var textProvider: SimpleTextProvider) {
     return u
   }
 
-  open fun getText(key: String): String? {
-    return textProvider.getText(key, null, emptyArray())
+  open fun getText(key: String): String {
+    return textProvider.getText(key, null, emptyArray()) ?: key
   }
 
-  open fun getText(key: String, params: Array<String>): String? {
-    return textProvider.getText(key, null, params)
+  open fun getText(key: String, params: Array<String>): String {
+    return textProvider.getText(key, null, params) ?: key
   }
 }
