@@ -217,6 +217,7 @@ class UserAccountManagerImpl : UserAccountManager {
         storedUser.firstname = user.firstname
         storedUser.lastname = user.lastname
         storedUser.role = user.role
+        user.password?.let { storedUser.password = it }
         addUser(storedUser)
         save()
       }
