@@ -19,6 +19,7 @@
     <java.version>1.8</java.version>
     <kotlin.version>1.6.21</kotlin.version>
     <xstream.version>1.4.19</xstream.version>
+    <javax.mail.version>1.4.7</javax.mail.version>
     <commons-lang3.version>3.12.0</commons-lang3.version>
     <commons-io.version>2.8.0</commons-io.version>
     <commons-text.version>1.9</commons-text.version>
@@ -56,6 +57,13 @@
       <groupId>com.thoughtworks.xstream</groupId>
       <artifactId>xstream</artifactId>
       <version>${xstream.version}</version>
+    </dependency>
+
+    <!-- Used to validate email addresses -->
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>${javax.mail.version}</version>
     </dependency>
 
     <dependency>

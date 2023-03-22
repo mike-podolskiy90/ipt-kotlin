@@ -37,9 +37,8 @@ class UsersController(
 
   @GetMapping("/admin/user")
   fun getUserView(model: Model, @RequestParam("id", required = false) id : String?): String {
-    val user = userAccountManager[id]
-    // TODO: 16/07/2022 user not found?
     if (id != null) {
+      val user = userAccountManager[id] ?: return "redirect:/not_found"
       model.addAttribute("user", user)
       model.addAttribute("id", id)
     }
@@ -75,7 +74,7 @@ class UsersController(
     return try {
       userAccountManager.create(user)
       redirectAttributes.addActionMessage(getText("admin.user.added"))
-      "admin/users"
+      "redirect:/admin/users"
     } catch (e: IOException) {
       LOG.error("The user change couldnt be saved: " + e.message, e)
       redirectAttributes.addActionError(getText("admin.user.saveError"))
