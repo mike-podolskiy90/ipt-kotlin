@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.7</version>
+    <version>2.7.16</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
@@ -17,12 +17,12 @@
 
   <properties>
     <java.version>1.8</java.version>
-    <kotlin.version>1.6.21</kotlin.version>
-    <xstream.version>1.4.19</xstream.version>
+    <kotlin.version>1.9.10</kotlin.version>
+    <xstream.version>1.4.20</xstream.version>
     <javax.mail.version>1.4.7</javax.mail.version>
-    <commons-lang3.version>3.12.0</commons-lang3.version>
-    <commons-io.version>2.8.0</commons-io.version>
-    <commons-text.version>1.9</commons-text.version>
+    <commons-lang3.version>3.13.0</commons-lang3.version>
+    <commons-io.version>2.14.0</commons-io.version>
+    <commons-text.version>1.10.0</commons-text.version>
     <validation-api.version>2.0.1.Final</validation-api.version>
   </properties>
 
